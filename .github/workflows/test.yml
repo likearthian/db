@@ -30,8 +30,12 @@ jobs:
           echo "UPPER_DB_LOG=ERROR" >> $GITHUB_ENV
 
       - name: Get requisites
+        env:
+          GO111MODULE: "on"
         run: |
           go get -v modernc.org/ql/ql
 
       - name: Execute main task
+        env:
+          GO111MODULE: "on"
         run: make ${{ matrix.target }}
